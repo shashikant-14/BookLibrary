@@ -1,0 +1,11 @@
+.updateBook{
+    margin-top: 10px;
+    width: 130px;
+    height: 60px;
+    border: 1px solid red;
+}
+
+.updateBook input{
+    margin: 5px;;
+    width: calc(100% - 10px);
+}

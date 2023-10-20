@@ -1,0 +1,10 @@
+.CBookContainer{
+    position: fixed;
+    bottom: 5%;
+    right: 0;
+    width: 50%;
+    height: 20%;
+    text-align: center;
+    background-color:darkgray;
+
+}

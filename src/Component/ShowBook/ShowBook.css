@@ -1,0 +1,34 @@
+.ShowBook{
+    position: relative;
+    width: 150px;
+    height: 200px;
+    border: 1px solid red;
+    padding: 25px 10px;
+    word-break: break-word;
+}
+
+.ShowBook img{
+    display: block;
+    width: 100%;
+    background-color: red;
+}
+
+.ShowBook button[id='deletebtn']{
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    background-color: transparent;
+    border: none;
+    color: red;
+    border: 1px solid black;
+}
+
+.ShowBook button[id='updatebtn']{
+    position: absolute;
+    top: 3px;
+    right: 18px;
+    background-color: transparent;
+    border: none;
+    color: red;
+    border: 1px solid black;
+}
