@@ -2,41 +2,17 @@ import logo from './logo.svg';
 import './App.css';
 import CreateBook from './Component/CreateBook/CreateBook';
 import BookList from './Component/BookList/BookList';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { BrowserContext } from './Context/Provider';
 
 function App() {
-  const [books, setBooks] = useState([]);
-  const handleSubmit = (title) => {
-    let newBook = {
-      id: Math.floor(Math.random() * (999 - 100) + 100),
-      title
-    }
+  const count = useContext(BrowserContext);
 
-    setBooks([...books, newBook]);
-  }
-
-  const handleDelete = (id) => {
-    let updatedData = books.filter((book) => book.id != id)
-    setBooks(updatedData);
-  }
-
-  const handleUpdate = (updatedbook) =>{
-    let updatedData = books.map((book)=>{
-      if(book.id == updatedbook.id){
-        console.log(updatedbook.title)
-        return updatedbook;
-      }
-      return book;
-    });
-
-    setBooks(updatedData);
-  }
-
-  console.log(books);
+  console.log(count);
   return (
     <div className='container'>
-      <BookList booksData={books} onDelete={handleDelete} onUpdate = {handleUpdate}/>
-      <CreateBook onSubmit={handleSubmit} />
+      <BookList/>
+      <CreateBook/>
     </div>
 
   );

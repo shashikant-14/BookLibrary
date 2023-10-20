@@ -1,30 +1,30 @@
-import React, { useMemo, useState } from 'react'
+import React, { useContext, useMemo, useState } from 'react'
 import './ShowBook.css'
 import logo192 from '../../logo.svg'
 import UpdateBook from '../UpdateBook/UpdateBook';
+import { BrowserContext } from '../../Context/Provider';
 
-function ShowBook({ book, onDelete, onUpdate }) {
+function ShowBook({ book }) {
   const [isEnabled, setIsenabled] = useState(false);
-  const handleDelete = () => {
-    onDelete(book.id);
+  const { handleDelete, handleUpdate } = useContext(BrowserContext);
+  const onDelete = () => {
+    handleDelete(book.id);
   }
 
-  const handleUpdate = (title) => {
-    onUpdate({ ...book, title });
+  const onUpdate = (title) => {
+    handleUpdate({ ...book, title });
     setIsenabled(!isEnabled);
 
   }
 
-  const content = useMemo(() => isEnabled ? <UpdateBook book={book} onUpdate={handleUpdate} /> : <h1>{book.title}</h1>, [isEnabled]);
+  const content = useMemo(() => isEnabled ? <UpdateBook book={book} onUpdate={onUpdate} /> : <h1>{book.title}</h1>, [isEnabled]);
 
   return (
 
     <div>
       <div className='ShowBook'>
-        <button id='deletebtn' onClick={handleDelete}>X</button>
+        <button id='deletebtn' onClick={onDelete}>X</button>
         <button id='updatebtn' onClick={() => { setIsenabled(!isEnabled) }}>Update</button>
-
-
         <img alt={book.title} src={logo192} />
         {content}
       </div>

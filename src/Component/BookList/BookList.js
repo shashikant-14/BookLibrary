@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ShowBook from '../ShowBook/ShowBook'
 import './BookList.css'
+import { BrowserContext } from '../../Context/Provider';
 
-function BookList({ booksData, onDelete, onUpdate }) {
+function BookList() {
+  const {books} = useContext(BrowserContext);
   return (
-
     <>
     <h1>Books Library</h1>
     <div className='bookList'>
-      {booksData.map((item) => (
-        <ShowBook key={item.id} book={item} onDelete={onDelete} onUpdate={onUpdate}/>
+      {books.map((item) => (
+        <ShowBook key={item.id} book={item}/>
       ))}
 
     </div>

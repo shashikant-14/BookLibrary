@@ -1,18 +1,21 @@
-import React, { useRef } from 'react'
+import React, { useContext, useRef } from 'react'
 import './CreateBook.css'
+import { BrowserContext } from '../../Context/Provider';
 
-function CreateBook({onSubmit}) {
+function CreateBook() {
     const inputRef = useRef(null);
-    const handleSubmit = (e)=>{
+    const {handleSubmit} = useContext(BrowserContext);
+
+    const onSubmit = (e)=>{
         e.preventDefault();
-        inputRef.current.value && onSubmit(inputRef.current.value);
+        inputRef.current.value && handleSubmit(inputRef.current.value);
         inputRef.current.value = null;
     }
 
   return (
     <div className='CBookContainer'>
         <h1>This is create book component</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={onSubmit}>
         <input ref={inputRef} type='text'></input>
         <button>add Book</button>
         </form>
