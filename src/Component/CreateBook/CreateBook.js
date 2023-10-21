@@ -1,10 +1,10 @@
-import React, { useContext, useRef } from 'react'
+import React, {useRef } from 'react'
 import './CreateBook.css'
-import { BrowserContext } from '../../Context/Provider';
+import { useCustomContext } from '../../CustomHooks/useCustomContext';
 
 function CreateBook() {
     const inputRef = useRef(null);
-    const {handleSubmit} = useContext(BrowserContext);
+    const {handleSubmit} = useCustomContext();
 
     const onSubmit = (e)=>{
         e.preventDefault();
