@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import {useContext} from 'react'
 import { BrowserContext } from '../Context/Provider'
 
 export function useCustomContext() {
